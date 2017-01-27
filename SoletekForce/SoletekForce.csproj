@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{34B01B69-B34C-4DBA-A9B0-FBF5EF9DE7EA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>SoletekForce</RootNamespace>
+    <AssemblyName>SoletekForce</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="OpenTK">
+      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="OpenTK.dll.config" />
+    <None Include="packages.config" />
+    <None Include="Graphics\Shaders\pickmask.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\default.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\default.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\alpha.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\alpha.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\billboard.frag">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Graphics\Shaders\billboard.vert">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\Entity.cs" />
+    <Compile Include="Engine\Timer.cs" />
+    <Compile Include="Input\Mouse.cs" />
+    <Compile Include="Graphics\RenderPipeline.cs" />
+    <Compile Include="Graphics\Viewport.cs" />
+    <Compile Include="Engine\Transform.cs" />
+    <Compile Include="Graphics\Texture.cs" />
+    <Compile Include="Graphics\GfxItemTypes\Sprite.cs" />
+    <Compile Include="Graphics\Camera.cs" />
+    <Compile Include="Graphics\Shader.cs" />
+    <Compile Include="Graphics\GraphicsBuffer.cs" />
+    <Compile Include="Graphics\Vertex.cs" />
+    <Compile Include="Graphics\Antialiasing.cs" />
+    <Compile Include="Graphics\Pickmask.cs" />
+    <Compile Include="Graphics\GfxItemTypes\LineGraph.cs" />
+    <Compile Include="Graphics\RenderStep.cs" />
+    <Compile Include="Graphics\IFrameBuffer.cs" />
+    <Compile Include="Engine\Backend\GLib.cs" />
+    <Compile Include="Engine\Backend\IBaseBackend.cs" />
+    <Compile Include="Pathfinding\IPathfindable.cs" />
+    <Compile Include="Pathfinding\IPathfindNode.cs" />
+    <Compile Include="Pathfinding\PathField.cs" />
+    <Compile Include="Pathfinding\PathNode.cs" />
+    <Compile Include="Pathfinding\PathRoute.cs" />
+    <Compile Include="Pathfinding\PathSearch.cs" />
+    <Compile Include="Audio\AudioClip.cs" />
+    <Compile Include="Audio\AudioEngine.cs" />
+    <Compile Include="Audio\WaveDecoder.cs" />
+    <Compile Include="Util\StreamExtensions.cs" />
+    <Compile Include="Graphics\GfxItemTypes\TextParagraph.cs" />
+    <Compile Include="Graphics\GfxItemTypes\ParticleRenderer.cs" />
+    <Compile Include="Audio\AudioSource.cs" />
+    <Compile Include="Engine\IInterpolatable.cs" />
+    <Compile Include="Animation\Animator.cs" />
+    <Compile Include="Animation\AnimatorChannel.cs" />
+    <Compile Include="Animation\WaypointAnimator.cs" />
+    <Compile Include="Animation\InvokeAnimator.cs" />
+    <Compile Include="Util\RandomExtensions.cs" />
+    <Compile Include="Pathfinding\IPathfindResult.cs" />
+    <Compile Include="Graphics\GfxItemTypes\GlyphString.cs" />
+    <Compile Include="Graphics\GfxItemTypes\Particle.cs" />
+    <Compile Include="Graphics\GfxItemTypes\Drawable.cs" />
+    <Compile Include="Input\Keyboard.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Engine\" />
+    <Folder Include="Input\" />
+    <Folder Include="Graphics\" />
+    <Folder Include="Graphics\Shaders\" />
+    <Folder Include="Graphics\GfxItemTypes\" />
+    <Folder Include="Audio\" />
+    <Folder Include="Engine\Backend\" />
+    <Folder Include="Pathfinding\" />
+    <Folder Include="Util\" />
+    <Folder Include="Animation\" />
+    <Folder Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
